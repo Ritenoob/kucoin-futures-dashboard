@@ -1,0 +1,21 @@
+✅ Features Implemented
+FeatureStatus9th Order Book Level Entry✅0.5% Initial Stop Loss✅2.0% Take Profit (4:1 R:R)✅Break-Even at ANY Profit > 0✅Trailing Stop (0.15% step → 0.05% move)✅Auto SL/TP Orders on KuCoin✅Auto SL Adjustment on KuCoin✅Position Size: 0.5% of Balance✅Default Leverage: 10x✅Max 5 Positions✅Any KuCoin Futures Symbol✅Timeframes: 1m,5m,15m,30m,1h,4h,1d✅Signal Generator (-100 to +100)✅RSI, Williams %R, MACD, AO, EMA, Bollinger, Stochastic, ATR✅Sound & Visual Alerts✅Positions Persist After Restart✅Dark Theme UI✅
+
+📊 Signal Scoring System
+IndicatorBullishBearishRSI+25 (<30)-25 (>70)Williams %R+20 (<-80)-20 (>-20)MACD+20 (>0)-20 (<0)AO+15 (>0)-15 (<0)EMA Trend+20 (50>200)-20 (50<200)Stochastic+10 (crossover)-10 (crossover)Bollinger+10 (below lower)-10 (above upper)
+Signal Thresholds:
+
+STRONG BUY: +70 to +100
+BUY: +30 to +69
+NEUTRAL: -29 to +29
+SELL: -30 to -69
+STRONG SELL: -70 to -100
+
+
+🔄 Order Flow
+
+Click LONG/SHORT → Limit order at 9th order book level
+On Fill → System places SL (0.5%) + TP (2%) orders on KuCoin
+Any Profit > 0 → SL moves to break-even (auto-adjusted on KuCoin)
+Every +0.15% profit → SL trails up 0.05% (auto-adjusted on KuCoin)
+SL or TP hits → Position closes automatical

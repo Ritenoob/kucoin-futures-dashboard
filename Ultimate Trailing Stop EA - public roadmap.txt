@@ -1,0 +1,83 @@
+Ultimate Trailing Stop EA - public roadmap
+Up next
+4
+Order-Entry Enhancement
+Add R-Multiple Trailing Start Trigger
+Add the same functionality to begin trailing as featured in the Partial Close EA. Very useful to begin trailing at 3R profit etc.
+
+Note: it was 5 votes, which is high. I accidentally forgot to port the vote count when I moved this card from idea to roadmap
+
+
+7
+
+0
+Dashboard Improvement
+Add Modifiable Price Threshold Column to Dashboard
+User Clive Tyler brought up a good idea (March 13, 2021) of adding modifiable price thresholds to inputs, and I thought, even better, let's add a modifiable price column threshold to dashboard.
+
+
+
+This would act as a supplemental to the pip threshold we already have. User can still indicate pip threshold for trailing stop activation, such as 50 pips, and then when the trades enter dashboard with their 50 pip threshold, user can see these thresholds at their price level, and furthermore, he can manually modify these thresholds up or down.  
+
+Use Case: Perhaps user has entered 50 pip threshold for all his 10+ orders, but when they get entered and controlled in UTS dashboard, he wants to manually change some of them, up or down in pips. With this price threshold in dashboard, he can do so. 
+
+
+2
+
+0
+Dashboard Improvement
+Add Modifiable Time Threshold Column to Dashboard
+User Clive Tyler brought up a good idea (March 13, 2021) of adding modifiable time thresholds in inputs, and I thought, even better, let's add modifiable time threshold column to dashboard.
+
+
+
+
+
+Use Case: perhaps user has entered a pending order in anticipation of an impact news event scheduled at a specific time. User then wants this order to be controlled at this time and he can do so by setting the [date]:[time] controls in the time threshold. 
+
+
+1
+
+0
+Trailing Stop Improvement
+Add Momentum-Based Trailing Stop
+One of the users messaged me to create and add a momentum-based trailing stop. 
+
+
+9
+
+0
+Future
+4
+Order-Entry Enhancement
+Add Multi-Symbol Trade Panel
+User will be able to see a grid panel with 10+ symbols in rows, with active bid/ask prices, active spread rates, ability to add magic and comments, and quickly able to enter into trades with buy/sell buttons. 
+
+
+3
+
+0
+Order-Entry Enhancement
+Convert Trailing Methods to Auto-Entry Signals
+UTS has 10 or so trailing methods that can be converted to auto-entry signals, allowing UTS to move from a trade management EA to a fully automatic entry/exit EA, if one desires it to act as such. 
+
+These methods can be used in either trend or counter-trend modes. Such an implementation would also be great for backtesting (and optimizing) trade ideas.  
+
+
+6
+
+0
+Dashboard Improvement
+Add Trade History Panel
+It would be interesting to see the historically controlled trades (how they entered, trailed, closed) in the last X days, so the user can review how the UTS performed on them. 
+
+
+4
+
+0
+Cross-Platform Enhancement
+Convert to MT5
+
+2
+
+0
