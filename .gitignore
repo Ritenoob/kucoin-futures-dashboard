@@ -1,4 +1,44 @@
+# Environment variables (secrets)
 .env
-node_modules
+*.env.local
+*.env.*.local
+
+# Dependencies
+node_modules/
+
+# Runtime data
 positions.json
-logs
+logs/
+*.log
+npm-debug.log*
+
+# IDE/Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+
+# Credentials - NEVER commit
+*credentials*.txt
+*secrets*.txt
+*api_key*.txt
+*.pem
+*.key
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
