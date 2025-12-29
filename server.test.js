@@ -380,13 +380,3 @@ describe('CONFIG', () => {
     assert.ok(CONFIG.DEFAULT_SYMBOLS.length > 0);
   });
 });
-
-// Force exit after all tests complete to avoid hanging
-process.on('exit', () => {
-  console.log('All tests passed!');
-});
-
-// Set a timeout to force exit in case something hangs
-setTimeout(() => {
-  process.exit(0);
-}, 5000);
