@@ -66,7 +66,8 @@ const KUCOIN_API_KEY = process.env.KUCOIN_API_KEY;
 const KUCOIN_API_SECRET = process.env.KUCOIN_API_SECRET;
 const KUCOIN_API_PASSPHRASE = process.env.KUCOIN_API_PASSPHRASE;
 
-if (!KUCOIN_API_KEY || !KUCOIN_API_SECRET || !KUCOIN_API_PASSPHRASE) {
+// Only enforce credentials when running as main (not during testing)
+if (require.main === module && (!KUCOIN_API_KEY || !KUCOIN_API_SECRET || !KUCOIN_API_PASSPHRASE)) {
   console.error('═══════════════════════════════════════════════════════════════');
   console.error('  ERROR: Missing KuCoin API credentials');
   console.error('  Please set in .env file:');
@@ -913,7 +914,10 @@ async function startup() {
 process.on('SIGINT', () => { savePositions(); process.exit(0); });
 process.on('uncaughtException', (error) => { console.error('[FATAL]', error); savePositions(); });
 
-startup().catch(error => { console.error('[STARTUP ERROR]', error); process.exit(1); });
+// Only start server when run directly (not when imported for testing)
+if (require.main === module) {
+  startup().catch(error => { console.error('[STARTUP ERROR]', error); process.exit(1); });
+}
 
 // Export for testing
 module.exports = { TechnicalIndicators, SignalGenerator, MarketDataManager, CONFIG };

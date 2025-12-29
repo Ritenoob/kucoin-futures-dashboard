@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "test": "mocha --exit test/**/*.test.js"
   },
   "keywords": [
     "kucoin",
@@ -26,6 +27,9 @@
     "http": "^0.0.1-security",
     "path": "^0.12.7",
     "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "mocha": "^10.8.2"
   },
   "engines": {
     "node": ">=16.0.0"
