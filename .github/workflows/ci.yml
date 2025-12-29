@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Restrict permissions for all jobs
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+        env:
+          NODE_ENV: test
+
+      - name: Verify server starts
+        run: |
+          # Start server in background
+          timeout 10 node server.js &
+          sleep 5
+          # Check health endpoint
+          curl -f http://localhost:3001/health || exit 1
+        env:
+          KUCOIN_API_KEY: ''
+          KUCOIN_API_SECRET: ''
+          KUCOIN_API_PASSPHRASE: ''
+
+  security:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for hardcoded secrets
+        run: |
+          # Check for potential secrets in tracked files
+          if grep -rE "(API_KEY|API_SECRET|PASSPHRASE)\s*=\s*['\"][^'\"]{10,}['\"]" --include="*.js" --include="*.ts" --include="*.json" --include="*.txt" --exclude-dir=node_modules .; then
+            echo "ERROR: Potential hardcoded secrets found!"
+            exit 1
+          fi
+          echo "No hardcoded secrets found"
+
+      - name: Verify .env.example exists
+        run: test -f .env.example

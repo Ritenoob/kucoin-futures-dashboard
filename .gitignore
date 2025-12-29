@@ -2,3 +2,24 @@
 node_modules
 positions.json
 logs
+
+# Security: Never commit credentials or sensitive files
+*credentials*
+*secret*
+*.pem
+*.key
+
+# Build artifacts
+dist/
+build/
+coverage/
+
+# IDE and OS files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test coverage
+.nyc_output/
